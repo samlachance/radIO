@@ -14,8 +14,8 @@ class Radio
 
   def telnet_connect
     Net::Telnet::new("Host" => "localhost",
-                      "Port" => 7356,
-                      "Prompt" => /\n/)
+                     "Port" => 7356,
+                     "Prompt" => /\n/)
   end
 
   def serial_connect 
@@ -31,7 +31,7 @@ class Radio
       freq = " " + freq
       @frequency = self.beautify(freq)
     else
-      @frequency = self.beautify(frq)
+      @frequency = self.beautify(freq)
     end
 
     str = tn.cmd("l").chomp
@@ -58,6 +58,6 @@ while true do
   while (i = ser) do
     radio.refresh
     i.write "#{radio.frequency}#{radio.strength} dB  #{radio.mode}        \n"
-    sleep(0.1) # Update interval
+    sleep(0.3) # Update interval
   end
 end
