@@ -7,9 +7,9 @@ class Radio
 
   def initialize
     @tn = self.telnet_connect
-    @frequency = tn.cmd("f")
-    @strength = tn.cmd("l")
-    @mode = tn.cmd("m")
+    @frequency  = tn.cmd("f")
+    @mode       = tn.cmd("m")
+    @strength   = tn.cmd("l")
   end
 
   def telnet_connect
@@ -41,7 +41,7 @@ class Radio
     else
       @strength = str
     end
-    
+
     @mode = tn.cmd("m").chomp
   end
 
